@@ -128,16 +128,17 @@ class InscripcionAlumnoForm(forms.ModelForm):
         }
 
 #clase NotaForm
-class InscripcionAlumnoForm(forms.ModelForm):
+class NotaForm(forms.ModelForm):
     class Meta:
-        model = InscripcionAlumno
-        fields = ['alumno', 'asignacion']
+        model = Nota
+        fields = ['inscripcion', 'nota']
 
         widgets = {
-            'alumno': forms.Select(attrs={
+            'inscripcion': forms.Select(attrs={
                 'class': 'form-select'
             }),
-            'asignacion': forms.Select(attrs={
-                'class': 'form-select'
+            'nota': forms.NumberInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Ej: 85.50'
             }),
         }
