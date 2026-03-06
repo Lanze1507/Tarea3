@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Lista de Asignaciones</h2>
+
+    <a href="{% url 'alumno:asignacion_create' %}" class="btn btn-primary mb-3">
+        Nueva Asignación
+    </a>
+
+    <table class="table table-bordered">
+    <th>Curso</th>
+    <th>Catedrático</th>
+    <th>Acciones</th>
+</div>
+{% endblock %}

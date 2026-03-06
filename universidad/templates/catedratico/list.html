@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Lista de Catedráticos</h2>
+
+    <a href="{% url 'alumno:catedratico_create' %}" class="btn btn-primary mb-3">
+        Nuevo Catedrático
+    </a>
+
+    <table class="table table-bordered">
+        <thead>
+            <th>Nombre</th>
+            <th>Especialidad</th>
+            <th>Acciones</th>
+</div>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Notas</h2>
+
+    <a href="{% url 'alumno:nota_create' %}" class="btn btn-primary mb-3">
+        Nueva Nota
+    </a>
+
+    <table class="table table-bordered">
+                <th>Alumno</th>
+                <th>Clases</th>
+                <th>Nota</th>
+                <th>Acciones</th>
+</div>
+{% endblock %}

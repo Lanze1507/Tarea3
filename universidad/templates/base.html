@@ -176,18 +176,14 @@
     </a>
 
     <div class="nav-section">Académico</div>
-    <a href="{% url 'alumno:list' %}"
-       class="nav-link {% if request.resolver_match.namespace == 'alumno' %}active{% endif %}">
-        <i class="bi bi-people-fill"></i> Alumnos
-    </a>
-
-    <!-- Módulos futuros -->
-    <a href="#" class="nav-link">
-        <i class="bi bi-journal-bookmark-fill"></i> Cursos
-    </a>
-    <a href="#" class="nav-link">
-        <i class="bi bi-clipboard2-check-fill"></i> Calificaciones
-    </a>
+    <ul class="nav flex-column ms-2">
+        <li><a class="nav-link" href="{% url 'alumno:list' %}">Alumnos</a></li>
+        <li><a class="nav-link" href="{% url 'alumno:curso_list' %}">Cursos</a></li>
+        <li><a class="nav-link" href="{% url 'alumno:catedratico_list' %}">Catedráticos</a></li>
+        <li><a class="nav-link" href="{% url 'alumno:asignacion_list' %}">Asignaciones</a></li>
+        <li><a class="nav-link" href="{% url 'alumno:inscripcion_list' %}">Inscripciones</a></li>
+        <li><a class="nav-link" href="{% url 'alumno:nota_list' %}">Notas</a></li>
+    </ul>
 
     <div class="nav-section">Sistema</div>
     <a href="#" class="nav-link">

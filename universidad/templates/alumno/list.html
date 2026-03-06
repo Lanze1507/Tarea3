@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Lista de Alumnos</h2>
+
+    <a href="{% url 'alumno:create' %}" class="btn btn-primary mb-3">
+        Nuevo Alumno
+    </a>
+
+    <table class="table table-bordered">
+            <th>Nombre</th>
+            <th>Carnet</th>
+            <th>Carrera</th>
+            <th>Acciones</th>
+
+</div>
+{% endblock %}

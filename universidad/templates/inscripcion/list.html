@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Inscripciones</h2>
+
+    <a href="{% url 'alumno:inscripcion_create' %}" class="btn btn-primary mb-3">
+        Nueva Inscripción
+    </a>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Nombre del alumno</th>
+                <th>Nombre del curso</th>
+                <th>Quien dara la clase</th>
+                <th>Acciones</th>
+            </tr>
+            </table>
+</div>
+{% endblock %}
