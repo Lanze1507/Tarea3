@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class="container mt-4">
-    <h2>Inscripciones</h2>
+    <h2>Lista de Inscripciones</h2>
 
     <a href="{% url 'alumno:inscripcion_create' %}" class="btn btn-primary mb-3">
         Nueva Inscripción
@@ -11,11 +11,29 @@
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th>Nombre del alumno</th>
-                <th>Nombre del curso</th>
-                <th>Quien dara la clase</th>
+                <th>Alumno</th>
+                <th>Curso</th>
+                <th>Catedrático</th>
                 <th>Acciones</th>
             </tr>
-            </table>
+        </thead>
+        <tbody>
+            {% for inscripcion in inscripciones %}
+            <tr>
+                <td>{{ inscripcion.alumno}}</td>
+                <td>{{ inscripcion.asignacion.curso.nombre }}</td>
+                <td>{{ inscripcion.asignacion.catedratico}}</td>
+                <td>
+                    <a href="{% url 'alumno:inscripcion_edit' inscripcion.pk %}" class="btn btn-warning btn-sm">Editar</a>
+                    <a href="{% url 'alumno:inscripcion_delete' inscripcion.pk %}" class="btn btn-danger btn-sm">Eliminar</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4">No hay inscripciones.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </div>
 {% endblock %}
