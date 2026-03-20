@@ -2,35 +2,39 @@
 
 {% block content %}
 <div class="container mt-4">
-    <h2>Lista de Cursos</h2>
+    <h2>Lista de Alumnos</h2>
 
-    <a href="{% url 'alumno:curso_create' %}" class="btn btn-primary mb-3">
-        Nuevo Curso
+    <a href="{% url 'alumno:create' %}" class="btn btn-primary mb-3">
+        Nuevo Alumno
     </a>
 
     <table class="table table-bordered">
         <thead>
             <tr>
                 <th>Nombre</th>
-                <th>Código</th>
-                <th>Créditos</th>
+                <th>email</th>
+                <th>Telefono</th>
+                <th>Sexo</th>
+                <th>Activo</th>
                 <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
-            {% for curso in cursos %}
+            {% for alumno in alumnos %}
             <tr>
-                <td>{{ curso.nombre }}</td>
-                <td>{{ curso.codigo }}</td>
-                <td>{{ curso.creditos }}</td>
+                <td>{{ alumno.first_name }} {{ alumno.last_name }}</td>
+                <td>{{ alumno.email }}</td>
+                <td>{{ alumno.phone }}</td>
+                <td>{{ alumno.gender }}</td>
+                <td>{{ alumno.is_active }}</td>
                 <td>
-                    <a href="{% url 'alumno:curso_edit' curso.id %}" class="btn btn-warning btn-sm">Editar</a>
-                    <a href="{% url 'alumno:curso_delete' curso.id %}" class="btn btn-danger btn-sm">Eliminar</a>
+                    <a href="{% url 'alumno:edit' alumno.pk %}" class="btn btn-warning btn-sm">Editar</a>
+                    <a href="{% url 'alumno:delete' alumno.pk %}" class="btn btn-danger btn-sm">Eliminar</a>
                 </td>
             </tr>
             {% empty %}
             <tr>
-                <td colspan="4">No hay cursos registrados.</td>
+                <td colspan="4">No hay alumnos registrados.</td>
             </tr>
             {% endfor %}
         </tbody>

@@ -2,13 +2,13 @@
 
 {% block content %}
 <div class="container mt-4">
-    <h2>{{ title }}</h2>
+    <h2>Confirmar eliminación</h2>
+
+    <p>¿Seguro que deseas eliminar al alumno <strong>{{ alumno.nombre }}</strong>?</p>
 
     <form method="post">
         {% csrf_token %}
-        {{ form.as_p }}
-
-        <button type="submit" class="btn btn-success">Guardar</button>
+        <button type="submit" class="btn btn-danger">Sí, eliminar</button>
         <a href="{% url 'alumno:list' %}" class="btn btn-secondary">Cancelar</a>
     </form>
 </div>
