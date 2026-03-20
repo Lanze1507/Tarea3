@@ -9,8 +9,31 @@
     </a>
 
     <table class="table table-bordered">
-    <th>Curso</th>
-    <th>Catedrático</th>
-    <th>Acciones</th>
+        <thead>
+            <tr>
+                <th>Curso</th>
+                <th>Catedrático</th>
+                <th>Horario</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for asignacion in asignaciones %}
+            <tr>
+                <td>{{ asignacion.curso.nombre }}</td>
+                <td>{{ asignacion.catedratico.nombre }}</td>
+                <td>{{ asignacion.horario}}
+                <td>
+                    <a href="{% url 'alumno:asignacion_edit' asignacion.pk %}">Editar</a>
+                    <a href="{% url 'alumno:asignacion_delete' asignacion.pk %}">Eliminar</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4">No hay asignaciones.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </div>
 {% endblock %}
