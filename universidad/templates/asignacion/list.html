@@ -21,8 +21,8 @@
             {% for asignacion in asignaciones %}
             <tr>
                 <td>{{ asignacion.curso.nombre }}</td>
-                <td>{{ asignacion.catedratico.nombre }}</td>
-                <td>{{ asignacion.horario}}
+                <td>{{ asignacion.catedratico.first_name }} {{ asignacion.catedratico.last_name }}</td>
+                <td>{{ asignacion.horario }}</td>
                 <td>
                     <a href="{% url 'alumno:asignacion_edit' asignacion.pk %}">Editar</a>
                     <a href="{% url 'alumno:asignacion_delete' asignacion.pk %}">Eliminar</a>
