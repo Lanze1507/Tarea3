@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Reporte: Alumnos y Cursos</h2>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Alumno</th>
+                <th>Curso</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in data %}
+            <tr>
+                <td>{{ item.alumno.first_name }}</td>
+                <td>{{ item.asignacion.curso.nombre }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

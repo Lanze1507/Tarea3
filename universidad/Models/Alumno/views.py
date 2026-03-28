@@ -277,3 +277,31 @@ def nota_delete(request, pk):
         messages.success(request, 'Nota eliminada.')
         return redirect('alumno:nota_list')
     return render(request, 'nota/confirm_delete.html', {'nota': nota})
+
+# Reportes y consultas combinadas
+
+def reporte_alumnos_cursos(request):
+    from .models import InscripcionAlumno
+
+    data = InscripcionAlumno.objects.select_related(
+        'alumno',
+        'asignacion__curso'
+    )
+
+    return render(request, 'reportes/reporte1.html', {
+        'data': data
+    })
+    
+def reporte_notas(request):
+    from .models import Nota
+
+    data = Nota.objects.select_related(
+        'inscripcion__alumno',
+        'inscripcion__asignacion__curso'
+    )
+
+    return render(request, 'reportes/reporte2.html', {
+        'data': data
+    })
+    
+    
